@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+*.pyo
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+data/
+results/
+reports-*/

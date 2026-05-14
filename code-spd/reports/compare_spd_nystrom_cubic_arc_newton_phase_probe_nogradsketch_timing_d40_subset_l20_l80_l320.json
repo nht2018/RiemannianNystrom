@@ -1,0 +1,112 @@
+{
+  "run_name": "spd_nystrom_cubic_arc_newton_phase_probe_nogradsketch_d40_subset_l20_l80_l320",
+  "problem": {
+    "d": 40,
+    "seed": 8,
+    "init_seeds": [
+      0
+    ],
+    "eig_min": 0.2,
+    "eig_max": 2.0,
+    "dist_weight": 1.0,
+    "inv_linear_weight": 1.0,
+    "inv_quadratic_weight": 1.0
+  },
+  "methods": {
+    "full_cubic": {
+      "rerun": false,
+      "options": {
+        "max_iter": 1000,
+        "tol_grad": 1e-06,
+        "tol_pred": -1.0,
+        "tol_step": -1.0,
+        "sigma0": 1.0,
+        "sigma_min": 1e-16,
+        "sigma_max": null,
+        "eta1": 0.1,
+        "eta2": 0.75,
+        "gamma1": 0.2,
+        "gamma2": 2.0,
+        "ridge": 1e-12,
+        "display_progress": false,
+        "time_limit": null
+      }
+    },
+    "nystrom_cubic_s20": {
+      "rerun": false,
+      "options": {
+        "max_iter": 1000,
+        "tol_grad": 1e-06,
+        "tol_pred": -1.0,
+        "tol_step": -1.0,
+        "include_gradient_in_sketch": false,
+        "sketch_distribution": "metric_gaussian",
+        "sigma0": 1.0,
+        "sigma_min": 1e-16,
+        "sigma_max": null,
+        "eta1": 0.1,
+        "eta2": 0.75,
+        "gamma1": 0.2,
+        "gamma2": 2.0,
+        "display_progress": false,
+        "time_limit": null
+      }
+    },
+    "nystrom_cubic_s80": {
+      "rerun": false,
+      "options": {
+        "max_iter": 1000,
+        "tol_grad": 1e-06,
+        "tol_pred": -1.0,
+        "tol_step": -1.0,
+        "include_gradient_in_sketch": false,
+        "sketch_distribution": "metric_gaussian",
+        "sigma0": 1.0,
+        "sigma_min": 1e-16,
+        "sigma_max": null,
+        "eta1": 0.1,
+        "eta2": 0.75,
+        "gamma1": 0.2,
+        "gamma2": 2.0,
+        "display_progress": false,
+        "time_limit": null
+      }
+    },
+    "nystrom_cubic_s320": {
+      "rerun": false,
+      "options": {
+        "max_iter": 1000,
+        "tol_grad": 1e-06,
+        "tol_pred": -1.0,
+        "tol_step": -1.0,
+        "include_gradient_in_sketch": false,
+        "sketch_distribution": "metric_gaussian",
+        "sigma0": 1.0,
+        "sigma_min": 1e-16,
+        "sigma_max": null,
+        "eta1": 0.1,
+        "eta2": 0.75,
+        "gamma1": 0.2,
+        "gamma2": 2.0,
+        "display_progress": false,
+        "time_limit": null
+      }
+    }
+  },
+  "compare_methods": [
+    "full_cubic",
+    "nystrom_cubic_s20",
+    "nystrom_cubic_s80",
+    "nystrom_cubic_s320"
+  ],
+  "plots": {
+    "x_limits": {
+      "iter": [
+        0.0,
+        1000.0
+      ],
+      "gradient_norm_vs_time": "shared_min_final",
+      "objective_vs_time": "shared_min_final"
+    }
+  }
+}

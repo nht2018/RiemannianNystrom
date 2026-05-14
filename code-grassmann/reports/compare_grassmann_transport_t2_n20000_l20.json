@@ -1,0 +1,89 @@
+{
+  "run_name": "grassmann_transport_t2_n20000_l20",
+  "output_dir": "reports-grassmann/grassmann_transport_t2_n20000_l20",
+  "problem": {
+    "n": 20000,
+    "p": 20,
+    "seed": 0,
+    "init_seed": 0,
+    "spectrum_top": 20.0,
+    "spectrum_bottom": 1.0
+  },
+  "compare_methods": [
+    "nystrom_cubic_s20",
+    "nystrom_cubic_s20_transport_t2",
+    "nystrom_cubic_s20_transport_t3"
+  ],
+  "methods": {
+    "nystrom_cubic_s20": {
+      "options": {
+        "max_iter": 100,
+        "tol_grad": 0.0,
+        "tol_pred": 0.0,
+        "tol_step": 0.0,
+        "sigma0": 1.0,
+        "sigma_min": 1e-16,
+        "eta1": 0.1,
+        "eta2": 0.75,
+        "gamma1": 0.5,
+        "gamma2": 2.0,
+        "sketch_size": 20,
+        "include_gradient_in_sketch": true,
+        "display_progress": false,
+        "random_state": 0
+      }
+    },
+    "nystrom_cubic_s20_transport_t2": {
+      "transport": true,
+      "transport_refresh_every": 2,
+      "options": {
+        "max_iter": 100,
+        "tol_grad": 0.0,
+        "tol_pred": 0.0,
+        "tol_step": 0.0,
+        "sigma0": 1.0,
+        "sigma_min": 1e-16,
+        "eta1": 0.1,
+        "eta2": 0.75,
+        "gamma1": 0.5,
+        "gamma2": 2.0,
+        "sketch_size": 20,
+        "include_gradient_in_sketch": true,
+        "transport_sketch": true,
+        "transport_keep_gradient_direction": true,
+        "transport_refresh_every": 2,
+        "transport_reset_on_reject": true,
+        "transport_bad_rho_tol": 0.5,
+        "transport_orth_tol": 0.01,
+        "display_progress": false,
+        "random_state": 1
+      }
+    },
+    "nystrom_cubic_s20_transport_t3": {
+      "transport": true,
+      "transport_refresh_every": 3,
+      "options": {
+        "max_iter": 100,
+        "tol_grad": 0.0,
+        "tol_pred": 0.0,
+        "tol_step": 0.0,
+        "sigma0": 1.0,
+        "sigma_min": 1e-16,
+        "eta1": 0.1,
+        "eta2": 0.75,
+        "gamma1": 0.5,
+        "gamma2": 2.0,
+        "sketch_size": 20,
+        "include_gradient_in_sketch": true,
+        "transport_sketch": true,
+        "transport_keep_gradient_direction": true,
+        "transport_refresh_every": 3,
+        "transport_reset_on_reject": true,
+        "transport_bad_rho_tol": 0.5,
+        "transport_orth_tol": 0.01,
+        "display_progress": false,
+        "random_state": 1
+      }
+    }
+  }
+}
