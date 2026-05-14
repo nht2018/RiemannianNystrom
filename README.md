@@ -41,6 +41,9 @@ Run the table reproduction:
 scripts/run_hdm05_table.sh
 ```
 
+The underlying PGA driver is `PGA/run_hdm05_downstream.py`, with helper routines
+in `PGA/pga_utils.py`.
+
 If the dataset lives elsewhere:
 
 ```bash

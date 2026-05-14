@@ -15,7 +15,7 @@ fi
 
 mkdir -p "$RESULTS_DIR"
 
-python PGA/src/run_hdm05_downstream.py \
+python PGA/run_hdm05_downstream.py \
   --raw-dir "$HDM05_RAW_DIR" \
   --output-dir "$RESULTS_DIR/hdm05_table_logreg_pairwise_storage" \
   --ells 20,40,80 \
@@ -32,7 +32,7 @@ python PGA/src/run_hdm05_downstream.py \
   --report-storage \
   --materialize-covariance
 
-python PGA/src/run_hdm05_downstream.py \
+python PGA/run_hdm05_downstream.py \
   --raw-dir "$HDM05_RAW_DIR" \
   --output-dir "$RESULTS_DIR/hdm05_table_svm_tuned" \
   --ells 20,40,80 \
@@ -51,7 +51,7 @@ python PGA/src/run_hdm05_downstream.py \
   --svm-gamma-grid 0.001,0.01,0.1,1 \
   --svm-cv 3
 
-python PGA/src/run_hdm05_downstream.py \
+python PGA/run_hdm05_downstream.py \
   --raw-dir "$HDM05_RAW_DIR" \
   --output-dir "$RESULTS_DIR/hdm05_table_mlp" \
   --ells 20,40,80 \
