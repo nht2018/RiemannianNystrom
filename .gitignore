@@ -5,7 +5,11 @@ __pycache__/
 .idea/
 .vscode/
 *.swp
+.venv/
 
 data/
 results/
 reports-*/
+experiments/transport_revision/report/
+experiments/transport_revision/source_archive/
+experiments/transport_revision/dense_action_cache/diagnostics/

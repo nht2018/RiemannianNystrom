@@ -14,6 +14,9 @@ experiments that are not used in the paper.
 
 Use Python 3.9 or newer.
 
+Clone this repository with Git (rather than downloading a ZIP), since the new
+Grassmann runner records the repository URL, commit, and source hashes.
+
 ```bash
 python -m venv .venv
 source .venv/bin/activate
@@ -81,7 +84,15 @@ The paper figure uses:
 
 ## Grassmann transported-sketching figure
 
-Run:
+The revised experiment uses a materialized dense, non-diagonal symmetric matrix
+of size `n=1024`, a Grassmann point with `p=20`, and sketch size `ell=40`.
+It compares optimized fresh sketching (`T=1`) with transported sketching
+(`T=2,4,8`). The transported variants reuse products of the fixed matrix with
+the sketch directions while assembling the current reduced Hessian at every
+iteration. No external dataset is needed.
+
+Run the five paired seeds and three timing repetitions serially, then generate
+the iteration/time figure:
 
 ```bash
 scripts/run_grassmann_figure.sh
@@ -90,13 +101,24 @@ scripts/run_grassmann_figure.sh
 Outputs are written under:
 
 ```text
-reports-grassmann/grassmann_transport_t2_n20000_l20/
+results/grassmann_dense_n1024/
+reports-grassmann/dense_action_periods_n1024/
 ```
 
 The paper figure uses:
 
-- `objective_gap_vs_iteration_grassmann_transport_t2_n20000_l20.eps`
-- `objective_gap_vs_time_grassmann_transport_t2_n20000_l20.eps`
+- `dense_action_periods_n1024_p20_l40_T2_T4_T8_seed90_rep0_iteration.eps`
+- `dense_action_periods_n1024_p20_l40_T2_T4_T8_seed90_rep0_time.eps`
+
+The plots use the preselected seed 90, repetition 0, with legends `T=1,2,4,8`
+and ordinate `f-f^star`; they are individual trajectories, not averaged curves.
+Timing summaries use all complete paired runs, and runtimes depend on hardware
+and numerical libraries. Existing outputs are never overwritten. See the
+[dense transported-sketching instructions](experiments/transport_revision/dense_action_cache/README.md)
+for tests, separate runner/report commands, and new output directories.
+
+The earlier Grassmann implementation remains available under `code-grassmann`;
+it is no longer the default experiment run by `scripts/run_grassmann_figure.sh`.
 
 ## Run everything
 

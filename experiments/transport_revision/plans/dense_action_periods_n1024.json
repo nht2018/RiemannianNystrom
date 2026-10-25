@@ -1,0 +1,38 @@
+{
+  "seed_role": "user_requested_n1024_fixed_A_cached_transport_periods_seeds90_94_three_repeats",
+  "purpose": "Only change the displayed transported-sketch refresh periods to T2/4/8 at the existing dense n1024 problem, with the original optimized fresh T1 comparator. No parameter search or method relabeling.",
+  "backend": "verified",
+  "geometry": "isometric_fused_dense",
+  "core": "dense_fixed_A_action_cache_current",
+  "random_streams": "spawned3",
+  "runner": "dense_action_cache/run_action_cache_experiments.py",
+  "display_case": "dense_action_periods_n1024_p20_l40",
+  "baseline_case": "dense_action_periods_n1024_p20_l40_fresh",
+  "transport_case": "dense_action_periods_n1024_p20_l40_cached",
+  "seeds": [90,91,92,93,94],
+  "replicates": 3,
+  "order_seed": 81705,
+  "randomize_order": true,
+  "representative_seed": 90,
+  "representative_replicate": 0,
+  "primary_target": 0.000001,
+  "validate": false,
+  "chunk_size": 320,
+  "workspace_bytes": 134217728,
+  "reporting_rules": [
+    "Freeze this plan and execution hashes before all60 serial randomized jobs. No numerical tests, plotting, compilation or other performance jobs may run concurrently. Never selectively rerun unfavorable timings.",
+    "Fresh T1 uses the already-tested original optimized DenseBlockOracle and fused geometry. Every T2/4/8 curve uses the same fixed-A action-cache specialization. The transport curves differ only in the refresh period. Do not describe this as pure direction transport or a four-implementation ablation.",
+    "Keep n1024,p20,ell40,head20-to19,tail18-to1,materialized dense non-diagonal A, random seed streams, initial points, algorithm options, caps and accuracy targets unchanged from the previous action-cache ablation. Verify the actual A/Y0 hashes against its same-seed records, but do not mix old timings with this new batch.",
+    "Use seeds90 through94 and three timing repeats for every arm. For each target require ALL3 valid repeats to reach before forming an arm/seed timing median; keep failures, misses and incomplete cells visible. Compare non-time histories across repeats diagnostically without discarding slow successful timings.",
+    "Form within-seed fresh-time/transport-time ratios after repeat medians, then median/min-max across five seeds. Do not pool15 timing repeats as15 independent problems; ranges are not confidence intervals and no significance claim is made.",
+    "Use first recorded relative objective-gap hits at1e-2,1e-4,1e-6 without interpolation. Retain gradient norms and iterations. The evaluator reference is an independent numerical eigensolve, not a rigorously certified exact value. Loop time excludes initial QR/geometry, matrix construction and reference calculation identically.",
+    "Current S and tangent projection are evaluated each trial; cached transport reuses fixed-A actions algebraically, not an old Hessian. Retain dense-product/core counters, cache-hit/rebase information, measured-validation source links and persistent-memory accounting. Whole-run counts are not target-prefix counts.",
+    "Render only n1024, with four curves labeled Nyström T1 and Transport T2/T4/T8. Keep the established red-family style, font sizes, line styles, two panels and EPS/PNG outputs. Preselect seed90 replicate0; no fastest-seed/repeat selection, smoothing, averaging, interpolation or time rescaling.",
+    "This uses the same five problem seeds as the earlier action-cache ablation, not five newly independent confirmation problems. All60 timings are new and previous evidence remains intact. Preserve the distinction from the historical ordinary-transport experiment.",
+    "Only new plan, raw results, reporter and report assets are in scope. Do not edit content.tex, response.tex, earlier sources/plans/results/reports or installed manuscript figures."
+  ],
+  "cases": [
+    {"name":"dense_action_periods_n1024_p20_l40_fresh","matrix":"dense_rotated_gapped","n":1024,"p":20,"ell":40,"spectrum":"gapped","tail_top":18,"max_iter":160,"time_limit":60,"targets":[0.01,0.0001,0.000001],"Ts":[1],"action_cache_enabled":false,"optimized_direct_control":true},
+    {"name":"dense_action_periods_n1024_p20_l40_cached","matrix":"dense_rotated_gapped","n":1024,"p":20,"ell":40,"spectrum":"gapped","tail_top":18,"max_iter":160,"time_limit":60,"targets":[0.01,0.0001,0.000001],"Ts":[2,4,8],"action_cache_enabled":true,"optimized_direct_control":false}
+  ]
+}
